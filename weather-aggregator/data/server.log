@@ -1,0 +1,2 @@
+PUT:2:ID001:{"cloud":"Partly cloudy","temperature":"13.3","location":"Adelaide","id":"ID001","state":"SA"}
+COMMIT:2

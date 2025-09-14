@@ -35,27 +35,29 @@ public class Storage {
      * param uniqueId: this is the Lamport-Clock which we is unique on each request
      */
     public void logPutRequest(String uniqueId, String stationId, String jsonBody) throws IOException, InterruptedException {
-        fileLock.acquire();
+        // fileLock.acquire();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_FILE_PATH, true))) {
             writer.write("PUT:" + uniqueId + ":" + stationId + ":" + jsonBody);
             writer.newLine();
             writer.flush(); // explitcitly flsuh the stream
-        } finally {
-            fileLock.release();
-        }
+        } 
+        // finally {
+        //     fileLock.release();
+        // }
     }
 
     public void logCompletion(String uniqueId) throws IOException, InterruptedException {
-        fileLock.acquire();
+        // fileLock.acquire();
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_FILE_PATH, true))) {
             writer.write("COMMIT:" + uniqueId);
             writer.newLine();
             writer.flush();
 
-        } finally {
-            fileLock.release();
-        }
+        } 
+        // finally {
+        //     fileLock.release();
+        // }
     }
 
     /*

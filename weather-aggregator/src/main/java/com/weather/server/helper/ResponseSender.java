@@ -2,7 +2,7 @@ package com.weather.server.helper;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.io.PrintWriter;
+import java.io.ObjectOutputStream;
 
 import com.weather.http.Response;
 
@@ -24,21 +24,24 @@ public class ResponseSender {
          * 
          * The PrintWriter is created on the clientSocket, so its output goes over the network to the specific machine that connected to your server.
          */
-        try (PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)){
-
+        // try (PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)){
+        try (ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream())){
             // Write the response status line
-            out.println("HTTP/1.1 " + response.getStatusCode() + " " + response.getStatusMessage());
+            // out.println("HTTP/1.1 " + response.getStatusCode() + " " + response.getStatusMessage());
             
-            // Write the headers
-            for (String header : response.getHeaders().keySet()) {
-                out.println(header + ": " + response.getHeaders().get(header));
-            }
-            out.println(); // Blank line between headers and body
+            // // Write the headers
+            // for (String header : response.getHeaders().keySet()) {
+            //     out.println(header + ": " + response.getHeaders().get(header));
+            // }
+            // out.println(); // Blank line between headers and body
 
-            // Write the body if it exists
-            if (response.getBody() != null) {
-                out.println(response.getBody());
-            }
+            // // Write the body if it exists
+            // if (response.getBody() != null) {
+            //     out.println(response.getBody());
+            // }
+
+            out.writeObject(response);
+            out.flush();
         }
     } 
 

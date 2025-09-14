@@ -1,5 +1,6 @@
 package com.weather.server.handler;
 
+import java.io.ObjectInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -45,8 +46,11 @@ public class RequestListener implements Runnable {
                     System.out.println("Client connected from: " + clientSocket.getInetAddress());
 
                     // Read the request from the client's input stream
-                    BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                    Request request = RequestParser.parse(in);
+                    // BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                    // Request request = RequestParser.parse(in);
+                    
+                    ObjectInputStream objectIn = new ObjectInputStream(clientSocket.getInputStream());
+                    Request request = (Request) objectIn.readObject(); 
 
                     // Check for Lamport clock header and update the server clock
                     int clientLamportValue = 0;
@@ -79,6 +83,9 @@ public class RequestListener implements Runnable {
                     System.err.println("Error accepting or processing client connection: " + e.getMessage());
                 } catch (InterruptedException e) {
                     System.err.println("ERROR: Invalid lamport clock value. Might be cannot parse newClockValue to String");
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    System.err.println("Received an invalid object from the client.");
                     e.printStackTrace();
                 }
             }

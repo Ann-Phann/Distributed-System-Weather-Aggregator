@@ -12,6 +12,7 @@ public class Response implements Serializable {
     public Response(StatusCode code) {
         this.statusCode = code.getStatusCode();
         this.statusMessage = code.toString();
+        this.headers = new HashMap<>();
     }
 
     public HashMap<String, String> getHeaders() { return headers; }

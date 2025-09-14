@@ -13,7 +13,7 @@ import com.weather.http.Response;
 
 public class ContentServer extends AbstractClient {
     public String id;
-    String dir = "src/main/java/client/contentserver/data";
+    String dir = "src/main/java/com/weather/client/contentserver/data";
     private final String fileName;
 
     public ContentServer(String hostname, int port, String fileName) {

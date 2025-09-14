@@ -67,13 +67,15 @@ public abstract class AbstractClient {
             connect(); // connect to the server
 
             // initialise streams
+            // create output stream first
             outputStream = new ObjectOutputStream(socket.getOutputStream());
-            inputStream = new ObjectInputStream(socket.getInputStream());
 
             // Create and send request
             Request request = createRequest();
             sendRequest(request);
 
+            // create input stream to wait for response
+            inputStream = new ObjectInputStream(socket.getInputStream());
             // wait for and show the response
             Response response = getResponse();
             showResponse(response);
