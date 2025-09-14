@@ -88,9 +88,11 @@ public class Storage {
                     }
 
                     String uniqueId = parts[1];
-                    // String stationId = parts[2];
+                    String stationId = parts[2];
                     String jsonBody = parts[3];
-                    incompleteRequests.put(uniqueId, jsonBody);
+                    // incompleteRequests.put(uniqueId, jsonBody);
+                    incompleteRequests.put(uniqueId, line);
+
 
                 } else if (line.startsWith("COMMIT:")) {
                     String[] parts = line.split(":", 2);
@@ -107,8 +109,17 @@ public class Storage {
         } else {
             System.out.println("Found " + incompleteRequests.size() + " incomplete requests. Re-processing...");
             for (String uniqueId : incompleteRequests.keySet()) {
-                String bodyOfIncompleteRequest = incompleteRequests.get(uniqueId);
-                server.getWeatherData().put(uniqueId, new ExpirableData(bodyOfIncompleteRequest));
+                String logEntry = incompleteRequests.get(uniqueId);
+                String[] parts = logEntry.split(":", 4);
+                
+                // Use the correct station ID from the log
+                String stationId = parts[2]; 
+                String jsonBody = parts[3];
+
+                // String bodyOfIncompleteRequest = incompleteRequests.get(uniqueId);
+                // server.getWeatherData().put(uniqueId, new ExpirableData(bodyOfIncompleteRequest));
+                server.getWeatherData().put(stationId, new ExpirableData(jsonBody));
+
 
                 // Re-logging the completion to ensure consistency after recovery
                 logCompletion(uniqueId);

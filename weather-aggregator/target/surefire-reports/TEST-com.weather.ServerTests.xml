@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.weather.ServerTests" time="1.382" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.weather.ServerTests" time="13.096" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="24"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-24\bin"/>
-    <property name="sun.java.command" value="C:\Users\tqtth\AppData\Local\Temp\surefire7849017624807241927\surefirebooter-20250914134845243_3.jar C:\Users\tqtth\AppData\Local\Temp\surefire7849017624807241927 2025-09-14T13-48-45_083-jvmRun1 surefire-20250914134845243_1tmp surefire_0-20250914134845243_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\tqtth\AppData\Local\Temp\surefire11994576044532208766\surefirebooter-20250914182849144_3.jar C:\Users\tqtth\AppData\Local\Temp\surefire11994576044532208766 2025-09-14T18-28-48_964-jvmRun1 surefire-20250914182849144_1tmp surefire_0-20250914182849144_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\tqtth\OneDrive\Máy tính\Distributed-System-Assignment2\weather-aggregator\target\test-classes;C:\Users\tqtth\OneDrive\Máy tính\Distributed-System-Assignment2\weather-aggregator\target\classes;C:\Users\tqtth\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.0\junit-jupiter-5.11.0.jar;C:\Users\tqtth\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.0\junit-jupiter-api-5.11.0.jar;C:\Users\tqtth\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tqtth\.m2\repository\org\junit\platform\junit-platform-commons\1.11.0\junit-platform-commons-1.11.0.jar;C:\Users\tqtth\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tqtth\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.0\junit-jupiter-params-5.11.0.jar;C:\Users\tqtth\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.0\junit-jupiter-engine-5.11.0.jar;C:\Users\tqtth\.m2\repository\org\junit\platform\junit-platform-engine\1.11.0\junit-platform-engine-1.11.0.jar;C:\Users\tqtth\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.2\jackson-databind-2.17.2.jar;C:\Users\tqtth\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.2\jackson-annotations-2.17.2.jar;C:\Users\tqtth\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.2\jackson-core-2.17.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\tqtth\AppData\Local\Temp\surefire7849017624807241927\surefirebooter-20250914134845243_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\tqtth\AppData\Local\Temp\surefire11994576044532208766\surefirebooter-20250914182849144_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="24.0.2+12-54"/>
@@ -58,14 +58,41 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="68.0"/>
   </properties>
-  <testcase name="testSuccessfulPutRequest" classname="com.weather.ServerTests" time="1.353">
+  <testcase name="testGetRequestForNonExistentStation" classname="com.weather.ServerTests" time="1.155">
+    <system-out><![CDATA[Starting Aggregation Server on port 4567...
+No log file found or log is empty. Starting fresh
+RequestListener is running and listening for client connections.
+
+--- Running Test TC-007: GET Request for Non-existent Station ID ---
+Attempting GET request for non-existent station: ID999
+Client connected from: /127.0.0.1
+Successfully connected to localhost:4567
+Sent request at logical time: 1
+Request from /127.0.0.1 added to queue. Queue size: 1
+Received response. Update clock to: 3
+--- Get Client Response --- 
+Status: 404
+Headers:
+	Lamport-Clock: 2
+----------------
+
+--- Test TC-005 Finished ---
+
+RequestListener thread shutting down.
+RequestListener thread shutting down.
+]]></system-out>
+    <system-err><![CDATA[Error: null
+Error accepting or processing client connection: Socket closed
+]]></system-err>
+  </testcase>
+  <testcase name="testSuccessfulPutRequest" classname="com.weather.ServerTests" time="1.714">
     <system-out><![CDATA[Starting Aggregation Server on port 4567...
 No log file found or log is empty. Starting fresh
 RequestListener is running and listening for client connections.
 
 --- Running Test TC-001: Successful PUT Request ---
-Client connected from: /127.0.0.1
 Successfully connected to localhost:4567
+Client connected from: /127.0.0.1
 Sent request at logical time: 1
 Request from /127.0.0.1 added to queue. Queue size: 1
 PUT request for ID001 handled. Data stored.
@@ -104,6 +131,366 @@ RequestListener thread shutting down.
 RequestListener thread shutting down.
 ]]></system-out>
     <system-err><![CDATA[Error accepting or processing client connection: Socket closed
+]]></system-err>
+  </testcase>
+  <testcase name="testSuccessfulGetRequest" classname="com.weather.ServerTests" time="2.017">
+    <system-out><![CDATA[Starting Aggregation Server on port 4567...
+No log file found or log is empty. Starting fresh
+RequestListener is running and listening for client connections.
+
+--- Running Test TC-002: Successful GET Request ---
+Attempting to connect with ContentServer to add data...
+Successfully connected to localhost:4567
+Client connected from: /127.0.0.1
+Sent request at logical time: 1
+Request from /127.0.0.1 added to queue. Queue size: 1
+PUT request for ID001 handled. Data stored.
+Received response. Update clock to: 3
+--- Content Server Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 2
+	Content-Length: 29
+	Content-Type: text/plain
+Body: Success: Data saved for ID001
+----------------
+Success: Data uploaded successfully.
+Attempting to connect with GETClient to retrieve data...
+Successfully connected to localhost:4567
+Client connected from: /127.0.0.1
+Sent request at logical time: 1
+Request from /127.0.0.1 added to queue. Queue size: 1
+Received response. Update clock to: 4
+--- Get Client Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 3
+	Content-Length: 94
+	Content-Type: application/json
+----------------
+Body:
+  cloud: Partly cloudy
+  temperature: 13.3
+  location: Adelaide
+  id: ID001
+  state: SA
+Expected Outcome: Server responds with a 200 OK status and the correct data body. Look at the console for 'GET Client Response'.
+--- Test TC-002 Finished ---
+
+RequestListener thread shutting down.
+RequestListener thread shutting down.
+]]></system-out>
+    <system-err><![CDATA[Error accepting or processing client connection: Socket closed
+]]></system-err>
+  </testcase>
+  <testcase name="testMixedGetAndPutRequests" classname="com.weather.ServerTests" time="2.619">
+    <system-out><![CDATA[Starting Aggregation Server on port 4567...
+No log file found or log is empty. Starting fresh
+RequestListener is running and listening for client connections.
+
+--- Running Test TC-004: Mixed GET and PUT Requests ---
+Starting a mix of 3 PUT clients and 3 GET clients concurrently...
+Successfully connected to localhost:4567
+Successfully connected to localhost:4567
+Client connected from: /127.0.0.1
+Successfully connected to localhost:4567
+Successfully connected to localhost:4567
+Successfully connected to localhost:4567
+Successfully connected to localhost:4567
+Sent request at logical time: 1
+Sent request at logical time: 1
+Sent request at logical time: 1
+Sent request at logical time: 1
+Sent request at logical time: 1
+Sent request at logical time: 1
+Request from /127.0.0.1 added to queue. Queue size: 1
+PUT request for ID000 handled. Data stored.
+Client connected from: /127.0.0.1
+Request from /127.0.0.1 added to queue. Queue size: 1
+Client connected from: /127.0.0.1
+Received response. Update clock to: 3
+--- Content Server Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 2
+	Content-Length: 29
+	Content-Type: text/plain
+Body: Success: Data saved for ID000
+----------------
+Success: Data uploaded successfully.
+PUT request for ID002 handled. Data stored.
+Request from /127.0.0.1 added to queue. Queue size: 1
+Client connected from: /127.0.0.1
+Received response. Update clock to: 4
+--- Content Server Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 3
+	Content-Length: 29
+	Content-Type: text/plain
+Request from /127.0.0.1 added to queue. Queue size: 2
+Body: Success: Data saved for ID002
+----------------
+Success: Data uploaded successfully.
+Client connected from: /127.0.0.1
+PUT request for ID001 handled. Data stored.
+Request from /127.0.0.1 added to queue. Queue size: 2
+Client connected from: /127.0.0.1
+Request from /127.0.0.1 added to queue. Queue size: 3
+Received response. Update clock to: 6
+--- Content Server Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 5
+	Content-Length: 29
+	Content-Type: text/plain
+Body: Success: Data saved for ID001
+----------------
+Success: Data uploaded successfully.
+Received response. Update clock to: 8
+--- Get Client Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 7
+	Content-Length: 54
+	Content-Type: application/json
+----------------
+Body:
+  temperature: 20.5
+  location: City0
+  id: ID000
+Received response. Update clock to: 8
+--- Get Client Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 7
+	Content-Length: 54
+	Content-Type: application/json
+----------------
+Body:
+  temperature: 20.5
+  location: City1
+  id: ID001
+Received response. Update clock to: 8
+--- Get Client Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 7
+	Content-Length: 54
+	Content-Type: application/json
+----------------
+Body:
+  temperature: 20.5
+  location: City2
+  id: ID002
+
+Final verification: Sending GET requests for all station IDs to confirm data was stored correctly.
+Verifying data for station ID000...
+Successfully connected to localhost:4567
+Client connected from: /127.0.0.1
+Sent request at logical time: 1
+Request from /127.0.0.1 added to queue. Queue size: 1
+Received response. Update clock to: 9
+--- Get Client Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 8
+	Content-Length: 54
+	Content-Type: application/json
+----------------
+Body:
+  temperature: 20.5
+  location: City0
+  id: ID000
+Verifying data for station ID001...
+Successfully connected to localhost:4567
+Client connected from: /127.0.0.1
+Sent request at logical time: 1
+Request from /127.0.0.1 added to queue. Queue size: 1
+Received response. Update clock to: 10
+--- Get Client Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 9
+	Content-Length: 54
+	Content-Type: application/json
+----------------
+Body:
+  temperature: 20.5
+  location: City1
+  id: ID001
+Verifying data for station ID002...
+Successfully connected to localhost:4567
+Client connected from: /127.0.0.1
+Sent request at logical time: 1
+Request from /127.0.0.1 added to queue. Queue size: 1
+Received response. Update clock to: 11
+--- Get Client Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 10
+	Content-Length: 54
+	Content-Type: application/json
+----------------
+Body:
+  temperature: 20.5
+  location: City2
+  id: ID002
+Expected Outcome: All requests (both GET and PUT) are processed without errors, and the final GET requests retrieve the correct data. Check the console logs for confirmation.
+--- Test TC-004 Finished ---
+
+RequestListener thread shutting down.
+RequestListener thread shutting down.
+]]></system-out>
+    <system-err><![CDATA[Error accepting or processing client connection: Socket closed
+]]></system-err>
+  </testcase>
+  <testcase name="testSimultaneousPutRequests" classname="com.weather.ServerTests" time="2.525">
+    <system-out><![CDATA[Starting Aggregation Server on port 4567...
+No log file found or log is empty. Starting fresh
+RequestListener is running and listening for client connections.
+
+--- Running Test TC-003: Simultaneous PUT Requests ---
+Starting 3 clients to send PUT requests concurrently...
+Successfully connected to localhost:4567
+Successfully connected to localhost:4567
+Successfully connected to localhost:4567
+Client connected from: /127.0.0.1
+Sent request at logical time: 1
+Sent request at logical time: 1
+Sent request at logical time: 1
+Request from /127.0.0.1 added to queue. Queue size: 1
+PUT request for ID000 handled. Data stored.
+Client connected from: /127.0.0.1
+Received response. Update clock to: 3
+--- Content Server Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 2
+	Content-Length: 29
+	Content-Type: text/plain
+Body: Success: Data saved for ID000
+----------------
+Success: Data uploaded successfully.
+Request from /127.0.0.1 added to queue. Queue size: 1
+Client connected from: /127.0.0.1
+PUT request for ID001 handled. Data stored.
+Received response. Update clock to: 4
+--- Content Server Response --- 
+Request from /127.0.0.1 added to queue. Queue size: 1
+Status: 200
+Headers:
+	Lamport-Clock: 3
+	Content-Length: 29
+	Content-Type: text/plain
+Body: Success: Data saved for ID001
+----------------
+Success: Data uploaded successfully.
+PUT request for ID002 handled. Data stored.
+Received response. Update clock to: 5
+--- Content Server Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 4
+	Content-Length: 29
+	Content-Type: text/plain
+Body: Success: Data saved for ID002
+----------------
+Success: Data uploaded successfully.
+All clients have sent their requests. Check the server logs to ensure all 3 PUT requests were processed correctly and without errors.
+--- Test TC-003 Finished ---
+
+RequestListener thread shutting down.
+RequestListener thread shutting down.
+]]></system-out>
+    <system-err><![CDATA[Error accepting or processing client connection: Socket closed
+]]></system-err>
+  </testcase>
+  <testcase name="testCrashAndRecovery" classname="com.weather.ServerTests" time="3.028">
+    <system-out><![CDATA[Starting Aggregation Server on port 4567...
+No log file found or log is empty. Starting fresh
+RequestListener is running and listening for client connections.
+
+--- Running Test TC-008: Crash and Recovery ---
+Sending PUT requests for stations TC008_ID1 and TC008_ID2...
+Successfully connected to localhost:4567
+Client connected from: /127.0.0.1
+Sent request at logical time: 1
+Request from /127.0.0.1 added to queue. Queue size: 1
+PUT request for TC008_ID1 handled. Data stored.
+Received response. Update clock to: 3
+--- Content Server Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 2
+	Content-Length: 33
+	Content-Type: text/plain
+Body: Success: Data saved for TC008_ID1
+----------------
+Success: Data uploaded successfully.
+Successfully connected to localhost:4567
+Client connected from: /127.0.0.1
+Sent request at logical time: 1
+Request from /127.0.0.1 added to queue. Queue size: 1
+PUT request for TC008_ID2 handled. Data stored.
+Received response. Update clock to: 4
+--- Content Server Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 3
+	Content-Length: 33
+	Content-Type: text/plain
+Body: Success: Data saved for TC008_ID2
+----------------
+Success: Data uploaded successfully.
+
+Simulating a server crash...
+Server has crashed.
+
+Restarting the server...
+RequestListener thread shutting down.
+RequestListener thread shutting down.
+Starting Aggregation Server on port 4567...
+Log file found. Beginning crash recovery
+Recovery complete. No incomplete requests found.
+RequestListener is running and listening for client connections.
+Server has restarted.
+
+Verifying data for station TC008_ID1...
+Response for station TC008_ID1 should be null.
+Successfully connected to localhost:4567
+Client connected from: /127.0.0.1
+Sent request at logical time: 1
+Request from /127.0.0.1 added to queue. Queue size: 1
+Received response. Update clock to: 3
+--- Get Client Response --- 
+Status: 404
+Headers:
+	Lamport-Clock: 2
+----------------
+Verifying data for station TC008_ID2...
+Response for station TC008_ID2 should be null.
+Successfully connected to localhost:4567
+Client connected from: /127.0.0.1
+Sent request at logical time: 1
+Request from /127.0.0.1 added to queue. Queue size: 1
+Received response. Update clock to: 4
+--- Get Client Response --- 
+Status: 404
+Headers:
+	Lamport-Clock: 3
+----------------
+
+SUCCESS: Both PUT requests were recovered after the simulated crash.
+--- Test TC-008 Finished ---
+
+RequestListener thread shutting down.
+RequestListener thread shutting down.
+]]></system-out>
+    <system-err><![CDATA[Error accepting or processing client connection: Socket closed
+Error: null
+Error: null
+Error accepting or processing client connection: Socket closed
 ]]></system-err>
   </testcase>
 </testsuite>
