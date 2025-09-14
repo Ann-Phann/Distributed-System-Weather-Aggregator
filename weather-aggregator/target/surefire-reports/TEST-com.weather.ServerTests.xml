@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.weather.ServerTests" time="1.382" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="24"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\tqtth\OneDrive\Máy tính\Distributed-System-Assignment2\weather-aggregator\target\test-classes;C:\Users\tqtth\OneDrive\Máy tính\Distributed-System-Assignment2\weather-aggregator\target\classes;C:\Users\tqtth\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.0\junit-jupiter-5.11.0.jar;C:\Users\tqtth\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.0\junit-jupiter-api-5.11.0.jar;C:\Users\tqtth\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tqtth\.m2\repository\org\junit\platform\junit-platform-commons\1.11.0\junit-platform-commons-1.11.0.jar;C:\Users\tqtth\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tqtth\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.0\junit-jupiter-params-5.11.0.jar;C:\Users\tqtth\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.0\junit-jupiter-engine-5.11.0.jar;C:\Users\tqtth\.m2\repository\org\junit\platform\junit-platform-engine\1.11.0\junit-platform-engine-1.11.0.jar;C:\Users\tqtth\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.2\jackson-databind-2.17.2.jar;C:\Users\tqtth\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.2\jackson-annotations-2.17.2.jar;C:\Users\tqtth\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.2\jackson-core-2.17.2.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Australia/Adelaide"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="24"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-24\bin"/>
+    <property name="sun.java.command" value="C:\Users\tqtth\AppData\Local\Temp\surefire7849017624807241927\surefirebooter-20250914134845243_3.jar C:\Users\tqtth\AppData\Local\Temp\surefire7849017624807241927 2025-09-14T13-48-45_083-jvmRun1 surefire-20250914134845243_1tmp surefire_0-20250914134845243_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\tqtth\OneDrive\Máy tính\Distributed-System-Assignment2\weather-aggregator\target\test-classes;C:\Users\tqtth\OneDrive\Máy tính\Distributed-System-Assignment2\weather-aggregator\target\classes;C:\Users\tqtth\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.0\junit-jupiter-5.11.0.jar;C:\Users\tqtth\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.0\junit-jupiter-api-5.11.0.jar;C:\Users\tqtth\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tqtth\.m2\repository\org\junit\platform\junit-platform-commons\1.11.0\junit-platform-commons-1.11.0.jar;C:\Users\tqtth\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tqtth\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.0\junit-jupiter-params-5.11.0.jar;C:\Users\tqtth\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.0\junit-jupiter-engine-5.11.0.jar;C:\Users\tqtth\.m2\repository\org\junit\platform\junit-platform-engine\1.11.0\junit-platform-engine-1.11.0.jar;C:\Users\tqtth\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.2\jackson-databind-2.17.2.jar;C:\Users\tqtth\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.2\jackson-annotations-2.17.2.jar;C:\Users\tqtth\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.2\jackson-core-2.17.2.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\tqtth"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-24"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\tqtth\OneDrive\Máy tính\Distributed-System-Assignment2\weather-aggregator"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\tqtth\AppData\Local\Temp\surefire7849017624807241927\surefirebooter-20250914134845243_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="24.0.2+12-54"/>
+    <property name="user.name" value="tqtth"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\tqtth\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\tqtth\AppData\Local\Temp\"/>
+    <property name="java.version" value="24.0.2"/>
+    <property name="user.dir" value="C:\Users\tqtth\OneDrive\Máy tính\Distributed-System-Assignment2\weather-aggregator"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-24\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\tqtth\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\tqtth\bin;C:\Users\tqtth\AppData\Local\Programs\Python\Python313;C:\Users\tqtth\AppData\Local\Programs\Python\Python313\Scripts;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Python312\Scripts;C:\Python312;C:\Users\tqtth\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\dotnet;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\mingw64\bin;D:\SFML\64\SFML-2.6.1-mingw-64-bit\SFML-2.6.1\bin;C:\Users\tqtth\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm Community Edition 2022.2.2\bin;C:\Users\tqtth\AppData\Local\Programs\Ollama;C:\Users\tqtth\AppData\Local\Pro;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Docker\Docker\resources\bin;C:\Users\tqtth\Downloads\pandoc-3.6.4;C:\Program Files\MiKTeX\miktex\bin\x64;C:\Users\tqtth\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Program Files\Java\jdk-24\bin;C:\Program Files\apache-maven-3.9.11\bin;C:\Users\tqtth\AppData\Local\Programs\Python\Python313;C:\Users\tqtth\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\tqtth\AppData\Local\Programs\Python\Python310\Scripts;C:\Users\tqtth\AppData\Local\Programs\Python\Python310;C:\Users\tqtth\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm Community Edition 2022.2.2\bin;C:\Users\tqtth\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tqtth\AppData\Local\Programs\Ollama;C:\Users\tqtth\AppData\Roaming\npm;C:\Users\tqtth\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\tqtth\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;C:\Program Files\apache-maven-3.9.11\bin;C:\Program Files\Java\jdk-24\bin;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="24.0.2+12-54"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="68.0"/>
+  </properties>
+  <testcase name="testSuccessfulPutRequest" classname="com.weather.ServerTests" time="1.353">
+    <system-out><![CDATA[Starting Aggregation Server on port 4567...
+No log file found or log is empty. Starting fresh
+RequestListener is running and listening for client connections.
+
+--- Running Test TC-001: Successful PUT Request ---
+Client connected from: /127.0.0.1
+Successfully connected to localhost:4567
+Sent request at logical time: 1
+Request from /127.0.0.1 added to queue. Queue size: 1
+PUT request for ID001 handled. Data stored.
+Received response. Update clock to: 3
+--- Content Server Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 2
+	Content-Length: 29
+	Content-Type: text/plain
+Body: Success: Data saved for ID001
+----------------
+Success: Data uploaded successfully.
+Successfully connected to localhost:4567
+Client connected from: /127.0.0.1
+Sent request at logical time: 1
+Request from /127.0.0.1 added to queue. Queue size: 1
+Received response. Update clock to: 4
+--- Get Client Response --- 
+Status: 200
+Headers:
+	Lamport-Clock: 3
+	Content-Length: 94
+	Content-Type: application/json
+----------------
+Body:
+  cloud: Partly cloudy
+  temperature: 13.3
+  location: Adelaide
+  id: ID001
+  state: SA
+Expected: Server accepts PUT, then GET retrieves the same data. Look at the console for 'GET Client Response'.
+--- Test TC-001 Finished ---
+
+RequestListener thread shutting down.
+RequestListener thread shutting down.
+]]></system-out>
+    <system-err><![CDATA[Error accepting or processing client connection: Socket closed
+]]></system-err>
+  </testcase>
+</testsuite>

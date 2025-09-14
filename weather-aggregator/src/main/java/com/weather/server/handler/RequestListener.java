@@ -39,7 +39,7 @@ public class RequestListener implements Runnable {
         try {
             // Set a timeout to prevent the thread from blocking indefinitely on serverSocket.accept()
             this.serverSocket.setSoTimeout(1000); 
-            while (!Thread.currentThread().isInterrupted()) {
+            while (!Thread.currentThread().isInterrupted() && server.isRunning()) {
                 try {
                     // Accept a new client connection
                     Socket clientSocket = serverSocket.accept(); // block + waiting for a connection
@@ -48,7 +48,7 @@ public class RequestListener implements Runnable {
                     // Read the request from the client's input stream
                     // BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                     // Request request = RequestParser.parse(in);
-                    
+
                     ObjectInputStream objectIn = new ObjectInputStream(clientSocket.getInputStream());
                     Request request = (Request) objectIn.readObject(); 
 
@@ -82,8 +82,11 @@ public class RequestListener implements Runnable {
                 } catch (IOException e) {
                     System.err.println("Error accepting or processing client connection: " + e.getMessage());
                 } catch (InterruptedException e) {
-                    System.err.println("ERROR: Invalid lamport clock value. Might be cannot parse newClockValue to String");
-                    e.printStackTrace();
+                    // System.err.println("ERROR: Invalid lamport clock value. Might be cannot parse newClockValue to String");
+                    // e.printStackTrace();
+                    Thread.currentThread().interrupt();
+                    System.err.println("Listener thread was interrupted. Shutting down.");
+                    return;
                 } catch (ClassNotFoundException e) {
                     System.err.println("Received an invalid object from the client.");
                     e.printStackTrace();
@@ -91,16 +94,22 @@ public class RequestListener implements Runnable {
             }
         } catch (IOException e) {
             System.err.println("Listener thread failed to initialize or experienced a fatal error: " + e.getMessage());
-        } finally {
-            // cleanup the whole server
-            try {
-                if (serverSocket != null) {
-                    serverSocket.close();
-                }
-            } catch (IOException e) {
-                System.err.println("Error closing server socket: " + e.getMessage());
-            }
+        } 
+        
+        finally {
+            System.out.println("RequestListener thread shutting down.");
         }
+        
+        // finally {
+        //     // cleanup the whole server
+        //     try {
+        //         if (serverSocket != null) {
+        //             serverSocket.close();
+        //         }
+        //     } catch (IOException e) {
+        //         System.err.println("Error closing server socket: " + e.getMessage());
+        //     }
+        // }
         System.out.println("RequestListener thread shutting down.");
     }
 }

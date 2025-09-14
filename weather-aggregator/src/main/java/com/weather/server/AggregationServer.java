@@ -81,6 +81,16 @@ public class AggregationServer implements Runnable {
         });
         consumerThread.start();
 
+        /* Add this for Testing: If running bit by bit we dont need this */
+        while (isRunning) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                isRunning = false; // Exit the loop if interrupted
+            }
+        }
+
         } catch (IOException e) {
             System.err.println("Could not listen on port " + this.port);
             System.exit(-1);
@@ -92,13 +102,19 @@ public class AggregationServer implements Runnable {
 
     public void close() {
         try {
-            if (serverSocket != null) {
+            this.isRunning = false;
+            if (serverSocket != null && !serverSocket.isClosed()) {
                 serverSocket.close();
                 scheduler.shutdown();
             }
-            isRunning = false;
+
+            if (scheduler != null && !scheduler.isShutdown()) {
+                scheduler.shutdown();
+                scheduler.awaitTermination(5, TimeUnit.SECONDS);
+            }
             
-        } catch (IOException  e) {
+            
+        } catch (IOException | InterruptedException e) {
             System.err.println("ERROR: An error occurred while closing the server socket.");
             e.printStackTrace();
         }
@@ -119,6 +135,10 @@ public class AggregationServer implements Runnable {
 
     public Storage getStorage() {
         return storage;
+    }
+
+    public boolean isRunning() {
+        return isRunning;
     }
     public static void main(String[] args) {
         if (args.length > 1) {
