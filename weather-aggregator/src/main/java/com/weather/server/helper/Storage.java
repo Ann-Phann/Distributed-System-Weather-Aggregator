@@ -88,8 +88,8 @@ public class Storage {
                     }
 
                     String uniqueId = parts[1];
-                    String stationId = parts[2];
-                    String jsonBody = parts[3];
+                    // String stationId = parts[2];
+                    // String jsonBody = parts[3];
                     // incompleteRequests.put(uniqueId, jsonBody);
                     incompleteRequests.put(uniqueId, line);
 

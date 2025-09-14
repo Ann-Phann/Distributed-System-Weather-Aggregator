@@ -2,9 +2,7 @@ package com.weather.server.handler;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
@@ -15,8 +13,6 @@ import com.weather.http.Response;
 import com.weather.http.StatusCode;
 import com.weather.server.AggregationServer;
 import com.weather.server.helper.RequestNode;
-import com.weather.server.helper.RequestParser;
-import com.weather.server.helper.ResponseSender;
 import com.weather.server.helper.Storage;
 
 public class RequestListener implements Runnable {

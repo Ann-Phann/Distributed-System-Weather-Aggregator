@@ -68,7 +68,6 @@ class ServerTests {
         server.close();
         serverThread.join();
         
-        // Clean up the temporary test file
         // Clean up all temporary test files created during the tests
         for (File file : createdTestFiles) {
             if (file.exists()) {
@@ -289,34 +288,34 @@ class ServerTests {
     }
 
     /**
-     * Test Case TC-008: Crash and Recovery
+     * Test Case TC-006: Crash and Recovery
      * Objective: Verify that the server can recover from a crash and restore its data state from the write-ahead log.
      */
     @Test
     void testCrashAndRecovery() throws IOException, InterruptedException, ClassNotFoundException {
-        System.out.println("\n--- Running Test TC-008: Crash and Recovery ---");
+        System.out.println("\n--- Running Test TC-006: Crash and Recovery ---");
 
         // Step 1: Send a few PUT requests to populate the server with data.
-        final String stationId1 = "TC008_ID1";
-        final String stationId2 = "TC008_ID2";
+        final String stationId1 = "TC006_ID1";
+        final String stationId2 = "TC006_ID2";
         
         // Create a temporary file for the first station
-        File file1 = new File(CONTENT_SERVER_DIR + "/TC008_1.txt");
+        File file1 = new File(CONTENT_SERVER_DIR + "/TC006_1.txt");
         try (FileWriter writer = new FileWriter(file1)) {
             writer.write("id:" + stationId1 + "\nlocation:Melbourne\ntemperature:22.5");
         }
         createdTestFiles.add(file1);
 
         // Create a temporary file for the second station
-        File file2 = new File(CONTENT_SERVER_DIR + "/TC008_2.txt");
+        File file2 = new File(CONTENT_SERVER_DIR + "/TC006_2.txt");
         try (FileWriter writer = new FileWriter(file2)) {
             writer.write("id:" + stationId2 + "\nlocation:Sydney\ntemperature:25.0");
         }
         createdTestFiles.add(file2);
 
         System.out.println("Sending PUT requests for stations " + stationId1 + " and " + stationId2 + "...");
-        new ContentServer("localhost", port, "TC008_1.txt").requestAndResponse();
-        new ContentServer("localhost", port, "TC008_2.txt").requestAndResponse();
+        new ContentServer("localhost", port, "TC006_1.txt").requestAndResponse();
+        new ContentServer("localhost", port, "TC006_2.txt").requestAndResponse();
         
         // Give the server a moment to process the requests and write to the log.
         TimeUnit.SECONDS.sleep(2);
@@ -353,7 +352,7 @@ class ServerTests {
         getClient2.requestAndResponse();
         
         System.out.println("\nSUCCESS: No PUT requests need recovered after the simulated crash.");
-        System.out.println("--- Test TC-008 Finished ---\n");
+        System.out.println("--- Test TC-006 Finished ---\n");
     }
     
 }
