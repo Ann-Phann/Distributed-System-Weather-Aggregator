@@ -43,6 +43,11 @@ To ensure **thread safety** during critical file I/O operations, a `Semaphore` i
 I have made Makefile which we can compile and run the components effectively and gracefully.
 
 ### How to compile
+Before doing any of these command line below, run this command line to direct to correct folder
+```
+cd weather-aggregator
+```
+
 Run this command to compile every files
 ```
 make compile
@@ -58,7 +63,7 @@ make run-server
 make run-server PORT=<port>
 ```
 
-To run **content server**
+Open a new terminal to run **content server**
 ```
 # Without explitly say which data file: data1.txt default
 make run-content
@@ -70,7 +75,7 @@ make run-content FILE=<data_name>
 make run-content FILE=data2.txt
 ```
 
-To run **Get Client**
+Open a new terminal to run **Get Client**
 ```
 # To get all stationId key
 make run-client 
@@ -91,3 +96,14 @@ The testing includes:
 - Verify the server's stability when a mix of GET and PUT requests are processed concurrently.
 - Verify the server correctly handles requests for station IDs that have no associated data.
 - Verify that the server can recover from a crash and restore its data state from the write-ahead log.
+
+### To run test
+Before doing any of these command line below, run this command line to direct to correct folder
+```
+cd weather-aggregator
+```
+
+Then, run test file
+```
+mvn test
+```
